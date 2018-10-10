@@ -17,6 +17,9 @@ app.use(bodyParser.json())
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
+// public engine setup
+app.use(express.static(__dirname + '/public'));
+
 // routes engine setup
 app.use('/', index)
 
