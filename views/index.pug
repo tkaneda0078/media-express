@@ -1,16 +1,40 @@
 doctype html
 html(lang="en")
+    <!-- head start -->
+
     head
         title= pageTitle
-        script(type='text/javascript').
-          if (foo) bar(1 + 5)
+        // UIkit CSS
+        link(rel='stylesheet', href='css/uikit.min.css')
+        // UIkit JS
+        script(src='js/uikit.min.js')
+        script(src='js/uikit-icons.min.js')
+
+    <!-- head end -->
+
+    <!-- body start -->
+
     body
-        h1 Pug - node template engine
-        #container.col
-            if youAreUsingPug
-                p You are amazing
-            else
-                p Get on it!
-            p.
-                Pug is a terse and simple templating language with a
-                strong focus on performance and powerful features.
+        div.uk-section-xsmall.uk-section-default.uk-box-shadow-small(uk-sticky='show-on-up: true; animation: uk-aimation-slide-top;')
+            div.uk-container.uk-container-expand
+                nav.uk-navbar-container.uk-navbar-transparent(uk-navbar='')
+                    div.uk-navbar-center
+                        a.uk-navbar-item(href='#') site title
+                    div.uk-navbar-right
+                        a(href='#offcanvas-right', uk-icon='icon: grid', uk-toggle='')
+
+        <!-- side bar start-->
+        div#offcanvas-right(uk-offcanvas='flip: true; mode: push; overlay: true;')
+            div.uk-offcanvas-bar
+                button.uk-offcanvas-close(type='button', uk-close='')
+                div.uk-section
+                    ul.uk-nav.uk-nav-default
+                        li.uk-active
+                            a(href='#') NAV 1
+                        li
+                            a(href='#') NAV 2
+                        li
+                            a(href='#') NAV 3
+        <!-- side bar end -->
+
+    <!-- body end -->
