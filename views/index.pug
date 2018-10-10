@@ -15,26 +15,50 @@ html(lang="en")
     <!-- body start -->
 
     body
-        div.uk-section-xsmall.uk-section-default.uk-box-shadow-small(uk-sticky='show-on-up: true; animation: uk-aimation-slide-top;')
-            div.uk-container.uk-container-expand
-                nav.uk-navbar-container.uk-navbar-transparent(uk-navbar='')
-                    div.uk-navbar-center
-                        a.uk-navbar-item(href='#') site title
-                    div.uk-navbar-right
-                        a(href='#offcanvas-right', uk-icon='icon: grid', uk-toggle='')
+        div#wrapper
 
-        <!-- side bar start-->
-        div#offcanvas-right(uk-offcanvas='flip: true; mode: push; overlay: true;')
-            div.uk-offcanvas-bar
-                button.uk-offcanvas-close(type='button', uk-close='')
-                div.uk-section
-                    ul.uk-nav.uk-nav-default
-                        li.uk-active
-                            a(href='#') NAV 1
-                        li
-                            a(href='#') NAV 2
-                        li
-                            a(href='#') NAV 3
-        <!-- side bar end -->
+            <!-- header start -->
+
+            header
+                p header
+                div.uk-section-xsmall.uk-section-default.uk-box-shadow-small(uk-sticky='show-on-up: true; animation: uk-aimation-slide-top;')
+                    div.uk-container.uk-container-expand
+                        nav.uk-navbar-container.uk-navbar-transparent(uk-navbar='')
+                            div.uk-navbar-center
+                                a.uk-navbar-item(href='#') site title
+                            div.uk-navbar-right
+                                a(href='#offcanvas-right', uk-icon='icon: grid', uk-toggle='')
+
+            <!-- header end -->
+
+            <!-- section start -->
+
+            div
+                section
+                    p section
+
+            <!-- side bar start -->
+
+            div#offcanvas-right(uk-offcanvas='flip: true; mode: push; overlay: true;')
+                div.uk-offcanvas-bar
+                    button.uk-offcanvas-close(type='button', uk-close='')
+                    div.uk-section
+                        ul.uk-nav.uk-nav-default
+                            li.uk-active
+                                a(href='#') NAV 1
+                            li
+                                a(href='#') NAV 2
+                            li
+                                a(href='#') NAV 3
+
+            <!-- side bar end -->
+
+            <!-- section end -->
+
+        <!-- footer start -->
+
+        footer
+            p footer
+        <!-- footer end -->
 
     <!-- body end -->
