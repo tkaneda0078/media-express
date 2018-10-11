@@ -1,33 +1,10 @@
-doctype html
-html(lang="en")
+extends includes/layout
 
-    // head
-
-    head
-        title= pageTitle
-
-        // UIkit CSS
-        link(rel='stylesheet', href='css/uikit.min.css')
-
-        // UIkit JS
-        script(src='js/uikit.min.js')
-        script(src='js/uikit-icons.min.js')
-
-    // body
-
-    body
-        div#wrapper
-
-            // header
-
-            include template/header
-
-            // section
-
-            div
-                section.uk-section
-                    p section
-
-        // footer
-
-        include template/footer
+block contents
+  div#wrapper
+    div
+      section.uk-section
+        div(uk-slideshow='autoplay: true')
+          ul.uk-slideshow-items
+            li
+              img(src='image/sample.jpg', alt='', uk-cover='')
