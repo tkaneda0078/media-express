@@ -7,38 +7,42 @@ block contents
         div(uk-slideshow='autoplay: true')
           ul.uk-slideshow-items
             li
-              img(src='images/sample.jpg', alt='', uk-cover='')
+              img(src='images/sample.jpg', alt='', uk-cover)
 
         // new article
-        div.uk-section.uk-card.uk-margin.uk-grid(class="uk-child-width-1-4@s" uk-grid)
+        article.new-article-list.uk-section.uk-card.uk-margin.uk-grid(class="uk-child-width-1-4@s" uk-grid)
           div
             div.uk-card.uk-card-small.uk-card-hover
-              div.uk-card-media-top
-                img(src='images/sample.jpg', alt='')
+              div.uk-card-media-top.uk-cover-container
+                img(src='images/sample.jpg', alt='' uk-cover)
+                canvas(width='200', height='135')
               div.uk-card-body
                 h3.uk-card-title Media Top
                 p
                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
           div
             div.uk-card.uk-card-small.uk-card-hover
-              div.uk-card-media-top
-                img(src='images/sample2.jpg', alt='')
+              div.uk-card-media-top.uk-cover-container
+                img(src='images/sample2.jpg', alt='' uk-cover)
+                canvas(width='200', height='135')
               div.uk-card-body
                 h3.uk-card-title Media Top
                 p
                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
           div
             div.uk-card.uk-card-small.uk-card-hover
-              div.uk-card-media-top
-                img(src='images/sample3.jpg', alt='')
+              div.uk-card-media-top.uk-cover-container
+                img(src='images/sample3.jpg', alt='' uk-cover)
+                canvas(width='200', height='135')
               div.uk-card-body
                 h3.uk-card-title Media Top
                 p
                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
           div
             div.uk-card.uk-card-small.uk-card-hover
-              div.uk-card-media-top
-                img(src='images/sample4.jpg', alt='')
+              div.uk-card-media-top.uk-cover-container
+                img(src='images/sample4.jpg', alt='' uk-cover)
+                canvas(width='200', height='135')
               div.uk-card-body
                 h3.uk-card-title Media Top
                 p
