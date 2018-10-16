@@ -3,50 +3,51 @@ extends includes/layout
 block contents
   div#wrapper
     div.uk-container
+      // topic article
       article
-        div.uk-cover-container.uk-width-xxlarge.uk-align-center
+        div.topic-card.uk-cover-container.uk-width-xxlarge.uk-align-center
           canvas(width='300', height='300')
-          img(src='images/sample.jpg', alt='', uk-cover)
+          img.img(src='images/sample.jpg', alt='', uk-cover)
 
 
       // new article
-      article.uk-card.uk-margin.uk-grid
+      article.uk-margin.uk-grid
         div.new-article-list(class="uk-child-width-1-4@s" uk-grid)
-          article
+          article.article-card
             div.uk-card.uk-card-small.uk-card-hover
               div.uk-card-media-top.uk-cover-container
-                img(src='images/sample.jpg', alt='' uk-cover)
+                img.img(src='images/sample.jpg', alt='' uk-cover)
                 canvas(width='200', height='135')
               div.uk-card-body
-                h3.uk-card-title Media Top
-                p
+                h3.title.uk-card-title Media Top
+                p.summary
                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-          article
+          article.article-card
             div.uk-card.uk-card-small.uk-card-hover
               div.uk-card-media-top.uk-cover-container
                 img(src='images/sample2.jpg', alt='' uk-cover)
                 canvas(width='200', height='135')
               div.uk-card-body
-                h3.uk-card-title Media Top
-                p
+                h3.title.uk-card-title Media Top
+                p.summary
                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-          article
+          article.article-card
             div.uk-card.uk-card-small.uk-card-hover
               div.uk-card-media-top.uk-cover-container
                 img(src='images/sample3.jpg', alt='' uk-cover)
                 canvas(width='200', height='135')
               div.uk-card-body
-                h3.uk-card-title Media Top
-                p
+                h3.title.uk-card-title Media Top
+                p.summary
                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-          article
+          article.article-card
             div.uk-card.uk-card-small.uk-card-hover
               div.uk-card-media-top.uk-cover-container
                 img(src='images/sample4.jpg', alt='' uk-cover)
                 canvas(width='200', height='135')
               div.uk-card-body
-                h3.uk-card-title Media Top
-                p
+                h3.title.uk-card-title Media Top
+                p.summary
                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
         div.uk-position-bottom-right.ui-read-more
           a.uk-button.uk-button-text(href='#') Read more
