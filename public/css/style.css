@@ -1,2 +1,11 @@
+@charset "UTF-8";
 .body {
   background: #121212; }
+
+/*----------------------------------------------------
+  カテゴリ別記事リスト
+----------------------------------------------------*/
+.category-article-list {
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto; }
