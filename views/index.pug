@@ -1,19 +1,19 @@
 extends includes/layout
 
 block contents
-  div.uk-container
+  div.uk-container.uk-container-xsmall
+
     // topic article
     article
       section.topic-card.uk-cover-container.uk-width-xxlarge.uk-align-center
         canvas(width='300', height='300')
         img.img(src='images/sample.jpg', alt='', uk-cover)
 
-
     // new article list
-    article.uk-margin.uk-grid
-      div.new-article-list(class="uk-child-width-1-4@s" uk-grid)
+    article.new-article-list.uk-margin.uk-grid
+      div(class="uk-child-width-1-4@s" uk-grid)
         article.article-card
-          section.uk-card.uk-card-small.uk-card-hover
+          section.card.uk-card.uk-card-small.uk-card-hover
             div.uk-card-media-top.uk-cover-container
               img.img(src='images/sample.jpg', alt='' uk-cover)
               canvas(width='200', height='135')
@@ -22,7 +22,7 @@ block contents
               p.summary
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
         article.article-card
-          section.uk-card.uk-card-small.uk-card-hover
+          section.card.uk-card.uk-card-small.uk-card-hover
             div.uk-card-media-top.uk-cover-container
               img(src='images/sample2.jpg', alt='' uk-cover)
               canvas(width='200', height='135')
@@ -31,7 +31,7 @@ block contents
               p.summary
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
         article.article-card
-          section.uk-card.uk-card-small.uk-card-hover
+          section.card.uk-card.uk-card-small.uk-card-hover
             div.uk-card-media-top.uk-cover-container
               img(src='images/sample3.jpg', alt='' uk-cover)
               canvas(width='200', height='135')
@@ -40,7 +40,7 @@ block contents
               p.summary
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
         article.article-card
-          section.uk-card.uk-card-small.uk-card-hover
+          section.card.uk-card.uk-card-small.uk-card-hover
             div.uk-card-media-top.uk-cover-container
               img(src='images/sample4.jpg', alt='' uk-cover)
               canvas(width='200', height='135')
@@ -55,7 +55,7 @@ block contents
     article.category-article-list
       div.uk-flex-center.uk-margin.uk-grid
         article.article-card
-          section.uk-card.uk-card-small.uk-card-hover
+          section.card.uk-card.uk-card-small.uk-card-hover
             div.uk-card-media-top.uk-cover-container
               img.img(src='images/sample.jpg', alt='' uk-cover)
               canvas(width='200', height='135')
@@ -65,7 +65,7 @@ block contents
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
         div.uk-margin(class="uk-child-width-1-2@s" uk-grid)
           article.article-card
-            section.uk-card.uk-card-small.uk-card-hover
+            section.card.uk-card.uk-card-small.uk-card-hover
               div.uk-card-media-top.uk-cover-container
                 img.img(src='images/sample.jpg', alt='' uk-cover)
                 canvas(width='200', height='135')
@@ -74,7 +74,7 @@ block contents
                 p.summary
                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
           article.article-card
-            section.uk-card.uk-card-small.uk-card-hover
+            section.card.uk-card.uk-card-small.uk-card-hover
               div.uk-card-media-top.uk-cover-container
                 img(src='images/sample2.jpg', alt='' uk-cover)
                 canvas(width='200', height='135')

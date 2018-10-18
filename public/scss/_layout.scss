@@ -4,9 +4,33 @@ $mainColor: #121212 !default;
   background: $mainColor
 }
 
+
 /*----------------------------------------------------
-  カテゴリ別記事リスト
+  カテゴリメニュー
 ----------------------------------------------------*/
+.category-menu {
+  > .menu {
+    list-style: none;
+    overflow: hidden;
+  }
+  > .category {
+    width: 250px;
+  }
+}
+
+
+/*----------------------------------------------------
+  記事リスト
+----------------------------------------------------*/
+.article-card {
+  > .card {
+    background-color: #f8f8f8;
+  }
+}
+
+/*-------------------
+  カテゴリ別記事リスト
+-------------------*/
 .category-article-list {
   max-width: 500px;
   margin-right: auto;
