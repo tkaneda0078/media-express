@@ -1,7 +1,9 @@
-$mainColor: #121212 !default;
+$mainColor: #0C0C0C !default;
+$textColor: #f8f8f8;
 
 .body {
-  background: $mainColor
+  background: $mainColor;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
 }
 
 
@@ -24,12 +26,15 @@ $mainColor: #121212 !default;
 ----------------------------------------------------*/
 .article-card {
   > .card {
-    background-color: #f8f8f8;
+    color: $textColor;
   }
 }
 
 /*-------------------
   カテゴリ別記事リスト
 -------------------*/
-.category-article-list {
+.category-title {
+  > .name {
+    color: $textColor;
+  }
 }

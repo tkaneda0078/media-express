@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .body {
-  background: #121212; }
+  background: #0C0C0C;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif; }
 
 /*----------------------------------------------------
   カテゴリメニュー
@@ -16,8 +17,15 @@
   記事リスト
 ----------------------------------------------------*/
 .article-card > .card {
-  background-color: #f8f8f8; }
+  color: #f8f8f8; }
 
 /*-------------------
   カテゴリ別記事リスト
 -------------------*/
+.category-title > .name {
+  color: #f8f8f8; }
+
+.category-title {
+  margin-top: 50px; }
+  .category-title > .name {
+    font-size: 4em; }
