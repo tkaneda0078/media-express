@@ -1,7 +1,7 @@
 extends includes/layout
 
 block contents
-  div.uk-container
+  div.uk-container.uk-container-small
     // topic article
     article.uk-margin
       section.topic-card.uk-cover-container.uk-align-center
@@ -9,7 +9,7 @@ block contents
         img.img(src='images/sample.jpg', alt='', uk-cover)
 
     // ranking article list
-    div.article-list(uk-slider='')
+    div.ranking-article-list(uk-slider='')
       div.uk-position-relative.uk-visible-toggle.uk-light
         ul.uk-slider-items.uk-child-width-1-2(class='uk-child-width-1-3@s uk-child-width-1-5@m')
           li
