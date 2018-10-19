@@ -32,6 +32,11 @@
   color: #f8f8f8; }
 
 .category-title {
-  margin-top: 50px; }
-  .category-title > .name {
-    font-size: 4em; }
+  margin-top: 50px;
+  text-align: center; }
+
+.category-title > .name {
+  font-size: 4em; }
+
+.article-list {
+  margin: 100px 0; }

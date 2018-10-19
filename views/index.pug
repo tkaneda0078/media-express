@@ -3,13 +3,13 @@ extends includes/layout
 block contents
   div.uk-container
     // topic article
-    article
+    article.uk-margin
       section.topic-card.uk-cover-container.uk-align-center
         canvas(width='400', height='500')
         img.img(src='images/sample.jpg', alt='', uk-cover)
 
-    // new article list
-    article.new-article-list.uk-margin.uk-grid
+    // ranking article list
+    article.article-list.uk-grid
       div(class="uk-child-width-1-5@s" uk-grid)
         article.article-card
           section.card.uk-card.uk-card-small.uk-card-hover
@@ -56,14 +56,92 @@ block contents
               //h3.title.uk-card-title Media Top
               p.summary
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-      div.uk-position-bottom-right.ui-read-more
-        a.uk-button.uk-button-text(href='#') Read more
 
-    // category article list
-    article.new-article-list.uk-margin
+    // new article list
+    article.article-list
       div.category-title
         div.uk-title.name
-          p category
+          p New
+      div(class="uk-child-width-1-4@s" uk-grid)
+        article.article-card
+          section.card.uk-card.uk-card-small.uk-card-hover
+            div.uk-card-media-top.uk-cover-container
+              img.img(src='images/sample.jpg', alt='' uk-cover)
+              canvas(width='200', height='135')
+            div.body.uk-card-body
+              //h3.title.uk-card-title Media Top
+              p.summary
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+        article.article-card
+          section.card.uk-card.uk-card-small.uk-card-hover
+            div.uk-card-media-top.uk-cover-container
+              img.img(src='images/sample.jpg', alt='' uk-cover)
+              canvas(width='200', height='135')
+            div.body.uk-card-body
+              //h3.title.uk-card-title Media Top
+              p.summary
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+        article.article-card
+          section.card.uk-card.uk-card-small.uk-card-hover
+            div.uk-card-media-top.uk-cover-container
+              img.img(src='images/sample2.jpg', alt='' uk-cover)
+              canvas(width='200', height='135')
+            div.body.uk-card-body
+              //h3.title.uk-card-title Media Top
+              p.summary
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+        article.article-card
+          section.card.uk-card.uk-card-small.uk-card-hover
+            div.uk-card-media-top.uk-cover-container
+              img.img(src='images/sample3.jpg', alt='' uk-cover)
+              canvas(width='200', height='135')
+            div.body.uk-card-body
+              //h3.title.uk-card-title Media Top
+              p.summary
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+        article.article-card
+          section.card.uk-card.uk-card-small.uk-card-hover
+            div.uk-card-media-top.uk-cover-container
+              img.img(src='images/sample4.jpg', alt='' uk-cover)
+              canvas(width='200', height='135')
+            div.body.uk-card-body
+              //h3.title.uk-card-title Media Top
+              p.summary
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+        article.article-card
+          section.card.uk-card.uk-card-small.uk-card-hover
+            div.uk-card-media-top.uk-cover-container
+              img.img(src='images/sample3.jpg', alt='' uk-cover)
+              canvas(width='200', height='135')
+            div.body.uk-card-body
+              //h3.title.uk-card-title Media Top
+              p.summary
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+        article.article-card
+          section.card.uk-card.uk-card-small.uk-card-hover
+            div.uk-card-media-top.uk-cover-container
+              img.img(src='images/sample4.jpg', alt='' uk-cover)
+              canvas(width='200', height='135')
+            div.body.uk-card-body
+              //h3.title.uk-card-title Media Top
+              p.summary
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+        article.article-card
+          section.card.uk-card.uk-card-small.uk-card-hover
+            div.uk-card-media-top.uk-cover-container
+              img.img(src='images/sample3.jpg', alt='' uk-cover)
+              canvas(width='200', height='135')
+            div.body.uk-card-body
+              //h3.title.uk-card-title Media Top
+              p.summary
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+
+
+    // category article list
+    article.article-list
+      div.category-title
+        div.uk-title.name
+          p Category
       div(class="uk-child-width-1-3@s" uk-grid)
         article.article-card
           section.card.uk-card.uk-card-small.uk-card-hover

@@ -1,7 +1,16 @@
 
 .category-title {
-  margin-top: 50px;
+  & {
+    margin-top: 50px;
+    text-align:center;
+  }
   > .name {
     font-size: 4em;
+  }
+}
+
+.article-list {
+  & {
+    margin: 10em 0;
   }
 }
