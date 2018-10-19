@@ -9,53 +9,52 @@ block contents
         img.img(src='images/sample.jpg', alt='', uk-cover)
 
     // ranking article list
-    article.article-list.uk-grid
-      div(class="uk-child-width-1-5@s" uk-grid)
-        article.article-card
-          section.card.uk-card.uk-card-small.uk-card-hover
-            div.uk-card-media-top.uk-cover-container
-              img.img(src='images/sample.jpg', alt='' uk-cover)
-              canvas(width='200', height='135')
-            div.body.uk-card-body
-              //h3.title.uk-card-title Media Top
-              p.summary
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-        article.article-card
-          section.card.uk-card.uk-card-small.uk-card-hover
-            div.uk-card-media-top.uk-cover-container
-              img(src='images/sample2.jpg', alt='' uk-cover)
-              canvas(width='200', height='135')
-            div.body.uk-card-body
-              //h3.title.uk-card-title Media Top
-              p.summary
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-        article.article-card
-          section.card.uk-card.uk-card-small.uk-card-hover
-            div.uk-card-media-top.uk-cover-container
-              img(src='images/sample3.jpg', alt='' uk-cover)
-              canvas(width='200', height='135')
-            div.body.uk-card-body
-              //h3.title.uk-card-title Media Top
-              p.summary
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-        article.article-card
-          section.card.uk-card.uk-card-small.uk-card-hover
-            div.uk-card-media-top.uk-cover-container
-              img(src='images/sample4.jpg', alt='' uk-cover)
-              canvas(width='200', height='135')
-            div.body.uk-card-body
-              //h3.title.uk-card-title Media Top
-              p.summary
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-        article.article-card
-          section.card.uk-card.uk-card-small.uk-card-hover
-            div.uk-card-media-top.uk-cover-container
-              img(src='images/sample4.jpg', alt='' uk-cover)
-              canvas(width='200', height='135')
-            div.body.uk-card-body
-              //h3.title.uk-card-title Media Top
-              p.summary
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+    div.article-list(uk-slider='')
+      div.uk-position-relative.uk-visible-toggle.uk-light
+        ul.uk-slider-items.uk-child-width-1-2(class='uk-child-width-1-3@s uk-child-width-1-5@m')
+          li
+            img.img(src='images/sample.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 1
+          li
+            img.img(src='images/sample2.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 2
+          li
+            img.img(src='images/sample3.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 3
+          li
+            img.img(src='images/sample4.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 4
+          li
+            img.img(src='images/sample.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 5
+          li
+            img.img(src='images/sample3.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 6
+          li
+            img.img(src='images/sample4.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 7
+          li
+            img.img(src='images/sample2.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 8
+          li
+            img.img(src='images/sample4.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 9
+          li
+            img.img(src='images/sample2.jpg', alt='')
+            div.uk-position-center.uk-panel
+              h1 10
+        a.uk-position-center-left.uk-position-small.uk-hidden-hover(href='#', uk-slidenav-previous='', uk-slider-item='previous')
+        a.uk-position-center-right.uk-position-small.uk-hidden-hover(href='#', uk-slidenav-next='', uk-slider-item='next')
+      ul.uk-slider-nav.uk-dotnav.uk-flex-center.uk-margin
 
     // new article list
     article.article-list
