@@ -23,7 +23,35 @@
   記事リスト
 ----------------------------------------------------*/
 .article-card > .card {
-  color: #f8f8f8; }
+  color: #f8f8f8;
+  position: relative;
+  transition: all .2s; }
+
+.article-card > .card::before,
+.article-card .card::after {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  z-index: 2;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 2px solid transparent; }
+
+.article-card > .card:hover::before,
+.article-card .card:hover::after {
+  width: 100%;
+  height: 100%; }
+
+.article-card > .card:hover::before {
+  border-top-color: #D0104C;
+  border-right-color: #D0104C;
+  transition: width .3s, height .3s .3s; }
+
+.article-card > .card:hover::after {
+  border-bottom-color: #D0104C;
+  border-left-color: #D0104C;
+  transition: height .3s, width .3s .3s; }
 
 /*-------------------
   カテゴリ別記事リスト
@@ -39,4 +67,9 @@
   font-size: 4em; }
 
 .article-list {
-  margin: 100px 0; }
+  margin: 5em 0; }
+
+.ranking-article-list > .img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain; }
