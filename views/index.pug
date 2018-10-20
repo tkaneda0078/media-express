@@ -5,8 +5,11 @@ block contents
     // topic article
     article.uk-margin
       section.topic-card.uk-cover-container.uk-align-center
-        canvas(width='400', height='500')
         img.img(src='images/sample.jpg', alt='', uk-cover)
+        canvas(width='400', height='500')
+        div.uk-overlay.uk-overlay-primary.uk-position-bottom
+          p Default Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
 
     // ranking article list
     div.ranking-article-list(uk-slider='')
