@@ -68,6 +68,17 @@ $textColor: #f8f8f8;
 }
 
 /*-------------------
+  ランキング記事リスト
+-------------------*/
+.ranking-article-list {
+  .img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+  }
+}
+
+/*-------------------
   カテゴリ別記事リスト
 -------------------*/
 .category-title {
