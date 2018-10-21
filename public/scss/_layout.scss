@@ -1,4 +1,5 @@
 $mainColor: #151515 !default;
+$navColor: #000001;
 $titleColor: #6CBB5A;
 $textColor: #FFFFFF;
 
@@ -13,7 +14,7 @@ $textColor: #FFFFFF;
 ----------------------------------------------------*/
 .navbar-container {
   & {
-    background-color: $mainColor;
+    background-color: $navColor;
   }
 }
 
@@ -21,6 +22,19 @@ $textColor: #FFFFFF;
   > .menu {
     > .title {
       color: $textColor;
+      position: relative;
+    }
+    > .title::before {
+      position: absolute;
+      top: 4em;
+      content: "";
+      width: 0;
+      height: 2px;
+      background: $titleColor;
+      transition: 0.3s;
+    }
+    > .title:hover::before {
+      width: 100%;
     }
   }
 }

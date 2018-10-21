@@ -7,10 +7,23 @@
   ナビゲーション
 ----------------------------------------------------*/
 .navbar-container {
-  background-color: #151515; }
+  background-color: #000001; }
 
 .nav-menu > .menu > .title {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  position: relative; }
+
+.nav-menu > .menu > .title::before {
+  position: absolute;
+  top: 4em;
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #6CBB5A;
+  transition: 0.3s; }
+
+.nav-menu > .menu > .title:hover::before {
+  width: 100%; }
 
 /*----------------------------------------------------
   カテゴリメニュー
