@@ -1,5 +1,6 @@
-$mainColor: #0C0C0C !default;
-$textColor: #f8f8f8;
+$mainColor: #151515 !default;
+$titleColor: #6CBB5A;
+$textColor: #FFFFFF;
 
 .body {
   background: $mainColor;
@@ -33,6 +34,18 @@ $textColor: #f8f8f8;
 /*----------------------------------------------------
   記事リスト
 ----------------------------------------------------*/
+.categoryName {
+  & {
+    margin-top: 50px;
+    text-align:center;
+  }
+  > .name {
+    color: $titleColor;
+    font-size: 4em;
+    font-weight: 800;
+  }
+}
+
 .article-card {
   > .card {
     color: $textColor;
@@ -40,7 +53,7 @@ $textColor: #f8f8f8;
     transition: all .2s;
   }
   > .card::before,
-  .card::after {
+    .card::after {
     position: absolute;
     top: -2px;
     left: -2px;
@@ -51,19 +64,22 @@ $textColor: #f8f8f8;
     border: 2px solid transparent;
   }
   > .card:hover::before,
-  .card:hover::after {
+    .card:hover::after {
     width: 100%;
     height: 100%;
   }
   > .card:hover::before {
-    border-top-color: #D0104C;
-    border-right-color: #D0104C;
+    border-top-color: #6CBB5A;
+    border-right-color: #6CBB5A;
     transition: width .3s, height .3s .3s;
   }
   > .card:hover::after {
-    border-bottom-color: #D0104C;
-    border-left-color: #D0104C;
+    border-bottom-color: #6CBB5A;
+    border-left-color: #6CBB5A;
     transition: height .3s, width .3s .3s;
+  }
+  > .body {
+    color: $textColor;
   }
 }
 

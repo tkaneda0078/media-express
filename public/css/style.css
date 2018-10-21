@@ -1,13 +1,13 @@
 @charset "UTF-8";
 .body {
-  background: #0C0C0C;
+  background: #151515;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif; }
 
 /*----------------------------------------------------
   ナビゲーション
 ----------------------------------------------------*/
 .navbar-container {
-  background-color: #0C0C0C; }
+  background-color: #151515; }
 
 /*----------------------------------------------------
   カテゴリメニュー
@@ -22,8 +22,17 @@
 /*----------------------------------------------------
   記事リスト
 ----------------------------------------------------*/
+.categoryName {
+  margin-top: 50px;
+  text-align: center; }
+
+.categoryName > .name {
+  color: #6CBB5A;
+  font-size: 4em;
+  font-weight: 800; }
+
 .article-card > .card {
-  color: #f8f8f8;
+  color: #FFFFFF;
   position: relative;
   transition: all .2s; }
 
@@ -44,14 +53,17 @@
   height: 100%; }
 
 .article-card > .card:hover::before {
-  border-top-color: #D0104C;
-  border-right-color: #D0104C;
+  border-top-color: #6CBB5A;
+  border-right-color: #6CBB5A;
   transition: width .3s, height .3s .3s; }
 
 .article-card > .card:hover::after {
-  border-bottom-color: #D0104C;
-  border-left-color: #D0104C;
+  border-bottom-color: #6CBB5A;
+  border-left-color: #6CBB5A;
   transition: height .3s, width .3s .3s; }
+
+.article-card > .body {
+  color: #FFFFFF; }
 
 /*-------------------
   ランキング記事リスト
@@ -65,7 +77,7 @@
   カテゴリ別記事リスト
 -------------------*/
 .category-title > .name {
-  color: #f8f8f8; }
+  color: #FFFFFF; }
 
 .category-title {
   margin-top: 50px;
@@ -76,8 +88,3 @@
 
 .article-list {
   margin: 5em 0; }
-
-.ranking-article-list > .img {
-  width: 250px;
-  height: 250px;
-  object-fit: contain; }
