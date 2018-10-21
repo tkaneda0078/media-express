@@ -9,6 +9,9 @@
 .navbar-container {
   background-color: #151515; }
 
+.nav-menu > .menu > .title {
+  color: #FFFFFF; }
+
 /*----------------------------------------------------
   カテゴリメニュー
 ----------------------------------------------------*/
@@ -22,11 +25,11 @@
 /*----------------------------------------------------
   記事リスト
 ----------------------------------------------------*/
-.categoryName {
+.categoryTitle {
   margin-top: 50px;
   text-align: center; }
 
-.categoryName > .name {
+.categoryTitle > .title {
   color: #6CBB5A;
   font-size: 4em;
   font-weight: 800; }
@@ -78,13 +81,6 @@
 -------------------*/
 .category-title > .name {
   color: #FFFFFF; }
-
-.category-title {
-  margin-top: 50px;
-  text-align: center; }
-
-.category-title > .name {
-  font-size: 4em; }
 
 .article-list {
   margin: 5em 0; }

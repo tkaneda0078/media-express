@@ -17,6 +17,14 @@ $textColor: #FFFFFF;
   }
 }
 
+.nav-menu {
+  > .menu {
+    > .title {
+      color: $textColor;
+    }
+  }
+}
+
 /*----------------------------------------------------
   カテゴリメニュー
 ----------------------------------------------------*/
@@ -34,12 +42,12 @@ $textColor: #FFFFFF;
 /*----------------------------------------------------
   記事リスト
 ----------------------------------------------------*/
-.categoryName {
+.categoryTitle {
   & {
     margin-top: 50px;
     text-align:center;
   }
-  > .name {
+  > .title {
     color: $titleColor;
     font-size: 4em;
     font-weight: 800;
