@@ -116,6 +116,15 @@ $textColor: #FFFFFF;
   }
 }
 
+.uk-panel {
+  > .rank {
+    font-size: 2.23125rem;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    font-weight: 400;
+    color: $textColor;
+  }
+}
 /*-------------------
   カテゴリ別記事リスト
 -------------------*/
