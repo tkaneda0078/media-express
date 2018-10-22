@@ -114,15 +114,17 @@ $textColor: #FFFFFF;
     height: 130px;
     object-fit: cover;
   }
+  .article {
+    > .summary {
+      font-size: 0.9em;
+    }
+  }
 }
 
 .uk-panel {
   > .rank {
-    font-size: 2.23125rem;
-    line-height: 1.2;
-    margin: 0 0 20px 0;
-    font-weight: 400;
-    color: $textColor;
+    font-weight: 800;
+    color: $mainColor !important;
   }
 }
 /*-------------------
