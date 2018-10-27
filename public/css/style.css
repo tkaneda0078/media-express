@@ -81,6 +81,20 @@
 .article-card > .body {
   color: #FFFFFF; }
 
+.viewmore {
+  text-align: center; }
+
+.viewmore > .btn {
+  display: inline-block;
+  width: 115px;
+  height: 25px;
+  padding: 10px;
+  border: solid 0.8px #6CBB5A;
+  border-radius: 5px;
+  color: #6CBB5A;
+  font-weight: bold;
+  text-decoration: none; }
+
 /*-------------------
   ランキング記事リスト
 -------------------*/
@@ -88,6 +102,13 @@
   width: 100%;
   height: 130px;
   object-fit: cover; }
+
+.ranking-article-list .article > .summary {
+  font-size: 0.9em; }
+
+.uk-panel > .rank {
+  font-weight: 800;
+  color: #151515 !important; }
 
 /*-------------------
   カテゴリ別記事リスト

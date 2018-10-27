@@ -1,6 +1,6 @@
 $mainColor: #151515 !default;
 $navColor: #000001;
-$titleColor: #6CBB5A;
+$accentColor: #6CBB5A;
 $textColor: #FFFFFF;
 
 .body {
@@ -30,7 +30,7 @@ $textColor: #FFFFFF;
       content: "";
       width: 0;
       height: 2px;
-      background: $titleColor;
+      background: $accentColor;
       transition: 0.3s;
     }
     > .title:hover::before {
@@ -62,7 +62,7 @@ $textColor: #FFFFFF;
     text-align:center;
   }
   > .title {
-    color: $titleColor;
+    color: $accentColor;
     font-size: 4em;
     font-weight: 800;
   }
@@ -102,6 +102,23 @@ $textColor: #FFFFFF;
   }
   > .body {
     color: $textColor;
+  }
+}
+
+.viewmore {
+  & {
+    text-align: center;
+  }
+  > .btn {
+    display: inline-block;
+    width: 115px;
+    height: 25px;
+    padding: 10px;
+    border: solid 0.8px $accentColor;
+    border-radius: 5px;
+    color: $accentColor;
+    font-weight: bold;
+    text-decoration: none;
   }
 }
 
