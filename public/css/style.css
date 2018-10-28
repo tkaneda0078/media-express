@@ -116,5 +116,14 @@
 .category-title > .name {
   color: #FFFFFF; }
 
+/*----------------------------------------------------
+  フッター
+----------------------------------------------------*/
+.footer-content {
+  text-align: center; }
+
+.footer-content > .copyright {
+  color: #FFFFFF; }
+
 .article-list {
   margin: 5em 0; }

@@ -152,3 +152,15 @@ $textColor: #FFFFFF;
     color: $textColor;
   }
 }
+
+/*----------------------------------------------------
+  フッター
+----------------------------------------------------*/
+.footer-content {
+  & {
+    text-align: center;
+  }
+  > .copyright {
+    color: $textColor;
+  }
+}
