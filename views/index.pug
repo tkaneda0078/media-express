@@ -4,23 +4,25 @@ block contents
   div.uk-container.uk-container-small
     // topic article
     article.topic-container.uk-margin
-      section.topic-card.uk-cover-container.uk-align-center
-        img.img(src=`${topic.img}`, alt='', uk-cover)
-        canvas(width='400', height='500')
-        div.uk-overlay.uk-overlay-primary.uk-position-bottom
-          p #{topic.summary}
+      a.uk-link-reset(href='/article/1')
+        section.topic-card.uk-cover-container.uk-align-center
+          img.img(src=`${topic.img}`, alt='', uk-cover)
+          canvas(width='400', height='500')
+          div.uk-overlay.uk-overlay-primary.uk-position-bottom
+            p #{topic.summary}
 
 
     // ranking article list
     div.ranking-article-list(uk-slider='').uk-position-relative.uk-visible-toggle.uk-light
       ul.uk-slider-items.uk-child-width-1-2(class='uk-child-width-1-3@s uk-child-width-1-5@m')
         each article, index in rankingArticles
-          li.article
-            img.img(src=`${article.img}`, alt='')
-            div.uk-position-top.uk-panel
-              span.rank.uk-badge #{index + 1}
-            div.summary.uk-overlay-primary.uk-position-bottom
-              p #{article.summary}
+          a.uk-link-reset(href='/article/1')
+            li.article.uk-inline-clip.uk-transition-toggle
+              img.img.uk-transition-scale-up.uk-transition-opaque(src=`${article.img}`, alt='')
+              div.uk-position-top.uk-panel
+                span.rank.uk-badge #{index + 1}
+              div.summary.uk-overlay-primary.uk-position-bottom
+                p #{article.summary}
       a.uk-position-center-left.uk-position-small.uk-hidden-hover(href='#', uk-slidenav-previous='', uk-slider-item='previous')
       a.uk-position-center-right.uk-position-small.uk-hidden-hover(href='#', uk-slidenav-next='', uk-slider-item='next')
       ul.uk-slider-nav.uk-dotnav.uk-flex-center.uk-margin
@@ -32,14 +34,15 @@ block contents
           p New
       div(class="uk-child-width-1-4@s" uk-grid)
         each article in newArticles
-          article.article-card
-            section.card.uk-card.uk-card-small
-              div.uk-card-media-top.uk-cover-container
-                img.img(src=`${article.img}`, alt='' uk-cover)
-                canvas(width='200', height='135')
-              div.body.uk-card-body
-                p.summary
-                  | #{article.summary}
+          article
+            a.article-card.uk-link-reset(href='/article/1')
+              section.card.uk-card.uk-card-small
+                div.uk-card-media-top.uk-cover-container
+                  img.img(src=`${article.img}`, alt='' uk-cover)
+                  canvas(width='200', height='135')
+                div.body.uk-card-body
+                  p.summary
+                    | #{article.summary}
       div.viewmore.uk-align-center
         a.btn View more
 
@@ -51,14 +54,15 @@ block contents
           p Category
       div(class="uk-child-width-1-3@s" uk-grid)
         each article in categoryArticles
-          article.article-card
-            section.card.uk-card.uk-card-small
-              div.uk-card-media-top.uk-cover-container
-                img(src=`${article.img}`, alt='' uk-cover)
-                canvas(width='200', height='200')
-              div.body.uk-card-body
-                p.summary
-                  | #{article.summary}
+          article
+            a.article-card.uk-link-reset(href='/article/1')
+              section.card.uk-card.uk-card-small
+                div.uk-card-media-top.uk-cover-container
+                  img(src=`${article.img}`, alt='' uk-cover)
+                  canvas(width='200', height='200')
+                div.body.uk-card-body
+                  p.summary
+                    | #{article.summary}
       div.viewmore.uk-align-center
         a.btn(href='/category/test') View more
 
