@@ -12,4 +12,9 @@ router.get('/category/:type', (req, res) => {
   res.render('list')
 })
 
+router.get('/article/:id', (req, res) => {
+  let id = req.params.id
+  res.render('detail')
+})
+
 module.exports = router
