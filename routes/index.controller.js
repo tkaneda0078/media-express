@@ -116,14 +116,48 @@ router.get('/', (req, res) => {
   res.render('index', data)
 })
 
-router.get('/category/:type', (req, res) => {
-  let type = req.params.type
-  res.render('list')
+router.get('/category/:category', (req, res) => {
+  // todo カテゴリ別にmodelでデータ取得する
+  let data = {}
+
+  let category = req.params.category
+  data['category'] = category
+
+  let articles = [
+    {
+      'img'    : '/images/sample2.jpg',
+      'summary': 'sample category summay1'
+    },
+    {
+      'img'    : '/images/sample.jpg',
+      'summary': 'sample category summay2'
+    },
+    {
+      'img'    : '/images/sample4.jpg',
+      'summary': 'sample category summay3'
+    },
+  ]
+
+  data['articles'] = articles
+
+  res.render('list', data)
 })
 
 router.get('/article/:id', (req, res) => {
-  let id = req.params.id
-  res.render('detail')
+  // todo カテゴリ別にmodelでデータ取得する
+  let data = {}
+
+  let articleId = req.params.id
+  data['articleId'] = articleId
+
+  let article = {
+    'img'    : '/images/sample2.jpg',
+    'title'  : 'article title'
+  }
+
+  data['article'] = article
+
+  res.render('detail', data)
 })
 
 module.exports = router

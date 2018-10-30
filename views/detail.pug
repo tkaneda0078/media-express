@@ -1,31 +1,22 @@
 extends includes/layout
 
 block contents
-  // breadcrumb
-  div.uk-navbar-left.breadcrumb-container
-    ul.breadcrumb.uk-breadcrumb
-      li.li
-        a.a(href="#") item
-      li.li
-        a.a(href="#") item
-      li.li
-        a.a(href="#") item
-
   div.uk-container.uk-container-small
 
-    // image
-    section.topic-card.uk-cover-container.uk-align-center
-      img.img(src='/images/sample.jpg', alt='', uk-cover)
-      canvas(width='300', height='500')
+    article.topic-container.uk-margin
+      // image
+      section.topic-card.uk-cover-container.uk-align-center
+        img.img(src=`${article.img}`, alt='', uk-cover)
+        canvas(width='300', height='500')
 
-    // detail article
-    div.uk-container.uk-container-xsmall
-      article.uk-article.detail-article
-        p.title title
-        p
-          | Written by Super User
-          |  on 12 April 2012. Posted in Blog
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      // detail article
+      div.uk-container.uk-container-xsmall
+        article.uk-article.detail-article
+          p.title #{article.title}
+          p
+            | Written by Super User
+            |  on 12 April 2012. Posted in Blog
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
