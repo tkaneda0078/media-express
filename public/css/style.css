@@ -25,6 +25,22 @@
 .nav-menu > .menu > .title:hover::before {
   width: 100%; }
 
+.breadcrumb-container {
+  margin-left: 15px;
+  margin-top: 13px; }
+
+.breadcrumb > .li > .a {
+  color: #FFFFFF; }
+
+.breadcrumb > .li > .a:hover {
+  color: #6CBB5A; }
+
+/*----------------------------------------------------
+  トピック
+----------------------------------------------------*/
+.topic-container {
+  margin-top: 50px; }
+
 /*----------------------------------------------------
   カテゴリメニュー
 ----------------------------------------------------*/
