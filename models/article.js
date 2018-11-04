@@ -14,6 +14,21 @@ class Article {
   }
 
   /**
+   * 記事詳細を設定する
+   *
+   * @param Int id 記事ID
+   */
+  setArticleDetail (id) {
+    // todo: IDを元にデータ取得
+    this.data = {
+        'img': '/images/sample2.jpg',
+        'title': 'article title',
+        'summary': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    }
+
+  }
+
+  /**
    * トピック記事を設定する
    *
    * todo: DBからデータ取得

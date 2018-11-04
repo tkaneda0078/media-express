@@ -4,6 +4,9 @@ const express = require('express')
 const router = express.Router()
 const Article = require('../models/article')
 
+/**
+ * Top
+ */
 router.get('/', (req, res) => {
   const article = new Article()
 
@@ -15,6 +18,9 @@ router.get('/', (req, res) => {
   res.render('index', article.getArticles())
 })
 
+/**
+ * カテゴリ別記事一覧
+ */
 router.get('/category/:category', (req, res) => {
   const article = new Article()
   let data = {}
@@ -29,18 +35,21 @@ router.get('/category/:category', (req, res) => {
   res.render('list', data)
 })
 
+/**
+ * 記事詳細
+ */
 router.get('/article/:id', (req, res) => {
   const article = new Article()
-
+  let data = {}
   let articleId = req.params.id
+
+  // 記事詳細を設定する
+  article.setArticleDetail(articleId)
+
   data['articleId'] = articleId
+  data['article'] = article.getArticles()
 
-  // let article = {
-  //   'img'    : '/images/sample2.jpg',
-  //   'title'  : 'article title'
-  // }
-
-  res.render('detail', article.getArticles())
+  res.render('detail', data)
 })
 
 module.exports = router
