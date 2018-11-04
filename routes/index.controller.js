@@ -17,13 +17,16 @@ router.get('/', (req, res) => {
 
 router.get('/category/:category', (req, res) => {
   const article = new Article()
-
+  let data = {}
   let category = req.params.category
+
+  // 特定のカテゴリ記事を設定する
+  article.setCategoryArticles(category)
+
   data['category'] = category
+  data['articles'] = article.getArticles()
 
-  article.setAllCategoryArticles()
-
-  res.render('list', article.getArticles())
+  res.render('list', data)
 })
 
 router.get('/article/:id', (req, res) => {

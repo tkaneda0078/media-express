@@ -155,6 +155,29 @@ class Article {
     }
   }
 
+  /**
+   * 特定のカテゴリ記事を設定する
+   *
+   * @param String category
+   */
+  setCategoryArticles (category) {
+    // todo: categoryを元にデータ取得
+    this.data = [
+      {
+        'img': '/images/sample2.jpg',
+        'summary': 'sample category summay1'
+      },
+      {
+        'img': '/images/sample.jpg',
+        'summary': 'sample category summay2'
+      },
+      {
+        'img': '/images/sample4.jpg',
+        'summary': 'sample category summay3'
+      }
+    ]
+  }
+
 }
 
 module.exports = Article
