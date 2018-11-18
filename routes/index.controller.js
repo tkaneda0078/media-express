@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
   article.setNewArticles()
   article.setAllCategoryArticles()
 
-  res.render('index', article.getArticles())
+  res.render('index', article.getArticleList())
 })
 
 /**
@@ -23,14 +23,14 @@ router.get('/', (req, res) => {
  */
 router.get('/category/:category', (req, res) => {
   const article = new Article()
-  let data = {}
+  let data = []
   let category = req.params.category
 
   // 特定のカテゴリ記事を設定する
   article.setCategoryArticles(category)
 
   data['category'] = category
-  data['articles'] = article.getArticles()
+  data['articles'] = article.getArticleList()
 
   res.render('list', data)
 })
@@ -40,14 +40,14 @@ router.get('/category/:category', (req, res) => {
  */
 router.get('/article/:id', (req, res) => {
   const article = new Article()
-  let data = {}
+  let data = []
   let articleId = req.params.id
 
   // 記事詳細を設定する
   article.setArticleDetail(articleId)
 
   data['articleId'] = articleId
-  data['article'] = article.getArticles()
+  data['article'] = article.getArticleList()
 
   res.render('detail', data)
 })

@@ -3,13 +3,14 @@
 class Article {
 
   constructor () {
-    this.data = {}
+    this.data = []
   }
+
 
   /**
    * 記事を取得する
    */
-  getArticles () {
+  getArticleList () {
     return this.data
   }
 
