@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
+    "firebase-admin": "^6.1.0",
     "helmet": "^3.13.0",
     "pug": "^2.0.3"
   }
