@@ -13,8 +13,43 @@ class Article extends firebase {
   /**
    * 記事を取得する
    */
-  getArticleList () {
+  async getArticleList () {
     return this.data
+  }
+
+  /**
+   * トピック記事を設定する
+   *
+   */
+  async setTopicArticle () {
+    this.data['topic'] = await this.getTopicArticle()
+  }
+
+  /**
+   * トピック記事を取得する
+   *
+   * todo: エラーハンドリング
+   */
+  async getTopicArticle () {
+    await this.initCollectionRef('articles')
+
+    // 最新のトピック記事のクエリ定義
+    const topic = this.collectionRef
+      .orderBy('createdAt', 'desc')
+      .limit(1)
+
+    let article = []
+    await topic.get()
+      .then(doc => {
+        const docRef = doc.docs[0]
+        article = docRef.data()
+        article.id = docRef.id
+      })
+      .catch(err => {
+        console.log('Error getting documents', err)
+      })
+
+    return article
   }
 
   /**
@@ -25,42 +60,11 @@ class Article extends firebase {
   setArticleDetail (id) {
     // todo: IDを元にデータ取得
     this.data = {
-        'img': '/images/sample2.jpg',
-        'title': 'article title',
-        'summary': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      'img': '/images/sample2.jpg',
+      'title': 'article title',
+      'summary': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     }
 
-  }
-
-  /**
-   * トピック記事を設定する
-   *
-   */
-  async setTopicArticle () {
-    this.data = this.getTopicArticle()
-  }
-
-  /**
-   * トピック記事を取得する
-   *
-   * todo: return処理
-   */
-  async getTopicArticle () {
-    await this.initCollectionRef('articles')
-
-    // 最新のトピック記事のクエリ定義
-    const topic = this.collectionRef
-      .orderBy('createdAt', 'desc')
-      .limit(1)
-
-    topic.get()
-      .then(doc => {
-        const article = doc.docs[0].data()
-        const title = article.title
-      })
-      .catch(err => {
-        console.log('Error getting documents', err)
-      })
   }
 
   /**

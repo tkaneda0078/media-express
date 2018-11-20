@@ -8,14 +8,14 @@ const Article = require('../models/article')
  * Top
  */
 router.get('/', async (req, res) => {
-  const article = await new Article()
+  const article = new Article()
 
   await article.setTopicArticle()
   article.setRankingArticles()
   article.setNewArticles()
   article.setAllCategoryArticles()
 
-  res.render('index', article.getArticleList())
+  res.render('index', await article.getArticleList())
 })
 
 /**
