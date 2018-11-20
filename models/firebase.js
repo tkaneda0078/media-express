@@ -7,7 +7,7 @@ class Firebase {
   constructor () {
     this.db = admin.firestore()
     this.db.settings({timestampsInSnapshots: true})
-    this.ref
+    this.collectionRef
   }
 
   /**
