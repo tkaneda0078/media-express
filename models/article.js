@@ -1,8 +1,11 @@
 'use strict'
 
-class Article {
+const firebase = require('./firebase')
+
+class Article extends firebase {
 
   constructor () {
+    super()
     this.data = []
   }
 
@@ -32,13 +35,32 @@ class Article {
   /**
    * トピック記事を設定する
    *
-   * todo: DBからデータ取得
    */
-  setTopicArticle () {
-    this.data['topicArticle'] = {
-      'img': '/images/sample2.jpg',
-      'summary': 'sample topic'
-    }
+  async setTopicArticle () {
+    this.data = this.getTopicArticle()
+  }
+
+  /**
+   * トピック記事を取得する
+   *
+   * todo: return処理
+   */
+  async getTopicArticle () {
+    await this.initCollectionRef('articles')
+
+    // 最新のトピック記事のクエリ定義
+    const topic = this.collectionRef
+      .orderBy('createdAt', 'desc')
+      .limit(1)
+
+    topic.get()
+      .then(doc => {
+        const article = doc.docs[0].data()
+        const title = article.title
+      })
+      .catch(err => {
+        console.log('Error getting documents', err)
+      })
   }
 
   /**

@@ -7,10 +7,10 @@ const Article = require('../models/article')
 /**
  * Top
  */
-router.get('/', (req, res) => {
-  const article = new Article()
+router.get('/', async (req, res) => {
+  const article = await new Article()
 
-  article.setTopicArticle()
+  await article.setTopicArticle()
   article.setRankingArticles()
   article.setNewArticles()
   article.setAllCategoryArticles()
