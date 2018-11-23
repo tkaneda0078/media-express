@@ -26,24 +26,26 @@ class Article extends firebase {
   }
 
   /**
-   * トピック記事を取得する
+   * 最新のトピック記事を取得する
    *
-   * todo: エラーハンドリング
+   * todo: エラーハンドリング、カラム指定できる場合必要な情報のみ取得
    */
   async getTopicArticle () {
     await this.initCollectionRef('articles')
 
-    // 最新のトピック記事のクエリ定義
     const topic = this.collectionRef
       .orderBy('createdAt', 'desc')
       .limit(1)
 
-    let article = []
+    let article = {}
     await topic.get()
       .then(doc => {
-        const docRef = doc.docs[0]
-        article = docRef.data()
-        article.id = docRef.id
+        const data = doc.docs[0].data()
+        article = {
+          id:       data.id,
+          title:    data.title,
+          imageUrl: data.imageUrls[0]
+        }
       })
       .catch(err => {
         console.log('Error getting documents', err)
