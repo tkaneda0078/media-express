@@ -7,6 +7,7 @@ class Article extends firebase {
   constructor () {
     super()
     this.data = []
+    this.initCollectionRef('articles')
   }
 
 
@@ -31,14 +32,13 @@ class Article extends firebase {
    * todo: エラーハンドリング、カラム指定できる場合必要な情報のみ取得
    */
   async getTopicArticle () {
-    await this.initCollectionRef('articles')
 
-    const topic = this.collectionRef
+    const docRef = this.collectionRef
       .orderBy('createdAt', 'desc')
       .limit(1)
 
     let article = {}
-    await topic.get()
+    await docRef.get()
       .then(doc => {
         const data = doc.docs[0].data()
         article = {
@@ -59,14 +59,29 @@ class Article extends firebase {
    *
    * @param Int id 記事ID
    */
-  setArticleDetail (id) {
-    // todo: IDを元にデータ取得
-    this.data = {
-      'img': '/images/sample2.jpg',
-      'title': 'article title',
-      'summary': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    }
+  async setArticleDetail (id) {
+    this.data = await this.getArticleDetail(id)
+  }
 
+  /**
+   * 記事詳細を設定する
+   *
+   * @param Int id 記事ID
+   */
+  async getArticleDetail (id) {
+    const docRef = this.collectionRef.doc(id)
+
+    let article = {}
+    await docRef.get()
+      .then(doc => {
+        article = doc.data()
+        article.id = data.id
+      })
+      .catch(err => {
+        console.log('Error getting documents', err)
+      })
+
+    return article
   }
 
   /**

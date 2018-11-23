@@ -38,18 +38,13 @@ router.get('/category/:category', (req, res) => {
 /**
  * 記事詳細
  */
-router.get('/article/:id', (req, res) => {
+router.get('/article/:id', async (req, res) => {
   const article = new Article()
-  let data = []
-  let articleId = req.params.id
 
   // 記事詳細を設定する
-  article.setArticleDetail(articleId)
+  await article.setArticleDetail(req.params.id)
 
-  data['articleId'] = articleId
-  data['article'] = article.getArticleList()
-
-  res.render('detail', data)
+  res.render('detail', await article.getArticleList())
 })
 
 module.exports = router

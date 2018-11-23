@@ -16,7 +16,7 @@ class Firebase {
    * @param string collection
    * @returns {Promise<void>}
    */
-  async initCollectionRef (collection) {
+  initCollectionRef (collection) {
     this.collectionRef = this.db.collection(collection)
   }
 
