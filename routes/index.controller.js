@@ -21,16 +21,16 @@ router.get('/', async (req, res) => {
 /**
  * カテゴリ別記事一覧
  */
-router.get('/category/:category', (req, res) => {
+router.get('/category/:category', async (req, res) => {
   const article = new Article()
   let data = []
-  let category = req.params.category
 
-  // 特定のカテゴリ記事を設定する
-  article.setCategoryArticles(category)
+  // カテゴリ別記事一覧を設定する
+  const category = req.params.category
+  await article.setCategoryArticles(category)
 
   data['category'] = category
-  data['articles'] = article.getArticleList()
+  data['articles'] = await article.getArticleList()
 
   res.render('list', data)
 })

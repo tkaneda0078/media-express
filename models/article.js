@@ -215,26 +215,41 @@ class Article extends firebase {
   }
 
   /**
-   * 特定のカテゴリ記事を設定する
+   * カテゴリ別記事一覧を設定する
    *
    * @param String category
    */
-  setCategoryArticles (category) {
-    // todo: categoryを元にデータ取得
-    this.data = [
-      {
-        'img': '/images/sample2.jpg',
-        'summary': 'sample category summay1'
-      },
-      {
-        'img': '/images/sample.jpg',
-        'summary': 'sample category summay2'
-      },
-      {
-        'img': '/images/sample4.jpg',
-        'summary': 'sample category summay3'
-      }
-    ]
+  async setCategoryArticles (category) {
+    this.data = await this.getCategoryArticles(category)
+  }
+
+  /**
+   * カテゴリ別記事一覧を取得する
+   *
+   * @param String category
+   * @returns array article
+   */
+  async getCategoryArticles (category) {
+    const docRef = this.collectionRef
+      .where('category', '==', category)
+
+    let articles = []
+    await docRef.get()
+      .then(docs => {
+        docs.forEach(doc => {
+          const data = doc.data()
+          articles.push({
+            id:       data.id,
+            title:    data.title,
+            imageUrl: data.imageUrls[0]
+          })
+        })
+      })
+      .catch(err => {
+        console.log('Error getting documents', err)
+      })
+
+    return articles
   }
 
 }
