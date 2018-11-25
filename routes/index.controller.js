@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
   await article.setTopicArticle()
   article.setRankingArticles()
-  article.setNewArticles()
+  await article.setNewArticles()
   article.setAllCategoryArticles()
 
   res.render('index', await article.getArticleList())

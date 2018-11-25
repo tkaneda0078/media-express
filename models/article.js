@@ -19,6 +19,43 @@ class Article extends firebase {
   }
 
   /**
+   * 最新の記事一覧を設定する
+   *
+   */
+  async setNewArticles () {
+    this.data['newArticles'] = await this.getNewArticles()
+  }
+
+  /**
+   * 最新の記事一覧を取得する
+   *
+   * @returns array articles
+   */
+  async getNewArticles () {
+    const docRef = this.collectionRef
+      .orderBy('createdAt', 'desc')
+      .limit(10)
+
+    let articles = []
+    await docRef.get()
+      .then(docs => {
+        docs.forEach(doc => {
+          const data = doc.data()
+          articles.push({
+            id:       data.id,
+            title:    data.title,
+            imageUrl: data.imageUrls[0]
+          })
+        })
+      })
+      .catch(err => {
+        console.log('Error getting documents', err)
+      })
+
+    return articles
+  }
+
+  /**
    * トピック記事を設定する
    *
    */
@@ -32,7 +69,6 @@ class Article extends firebase {
    * todo: エラーハンドリング、カラム指定できる場合必要な情報のみ取得
    */
   async getTopicArticle () {
-
     const docRef = this.collectionRef
       .orderBy('createdAt', 'desc')
       .limit(1)
@@ -135,48 +171,6 @@ class Article extends firebase {
   }
 
   /**
-   * 最新の記事を設定する
-   *
-   * todo: DBからデータ取得
-   */
-  setNewArticles () {
-    this.data['newArticles'] = [
-      {
-        'img'    : '/images/sample2.jpg',
-        'summary': 'sample new summay1'
-      },
-      {
-        'img'    : '/images/sample.jpg',
-        'summary': 'sample nwe summay2'
-      },
-      {
-        'img'    : '/images/sample.jpg',
-        'summary': 'sample new summay3'
-      },
-      {
-        'img'    : '/images/sample4.jpg',
-        'summary': 'sample new summay4'
-      },
-      {
-        'img'    : '/images/sample4.jpg',
-        'summary': 'sample new summay5'
-      },
-      {
-        'img'    : '/images/sample2.jpg',
-        'summary': 'sample new summay6'
-      },
-      {
-        'img'    : '/images/sample4.jpg',
-        'summary': 'sample new summay7'
-      },
-      {
-        'img'    : '/images/sample3.jpg',
-        'summary': 'sample new summay8'
-      }
-    ]
-  }
-
-  /**
    * 全カテゴリの記事を設定する
    *
    * todo: DBからデータ取得
@@ -227,7 +221,7 @@ class Article extends firebase {
    * カテゴリ別記事一覧を取得する
    *
    * @param String category
-   * @returns array article
+   * @returns array articles
    */
   async getCategoryArticles (category) {
     const docRef = this.collectionRef
