@@ -2,57 +2,53 @@
 
 const firebase = require('./firebase')
 
+/**
+ * Article class
+ *
+ * todo: エラーハンドリング、ログ出力
+ */
 class Article extends firebase {
 
   constructor () {
     super()
-    this.data = []
-    this.initCollectionRef('articles')
+    this._data = []
+    this._articleRef = this.getCollectionRef('articles')
   }
-
 
   /**
    * 記事を取得する
    */
   async getArticleList () {
-    return this.data
+    return this._data
   }
 
   /**
    * 最新の記事一覧を設定する
    *
    */
-  async setNewArticles () {
-    this.data['newArticles'] = await this.getNewArticles()
-  }
-
-  /**
-   * 最新の記事一覧を取得する
-   *
-   * @returns array articles
-   */
-  async getNewArticles () {
-    const docRef = this.collectionRef
+  async setNewArticleList () {
+    let articleList = []
+    await this._articleRef
       .orderBy('createdAt', 'desc')
       .limit(10)
-
-    let articles = []
-    await docRef.get()
+      .get()
       .then(docs => {
         docs.forEach(doc => {
           const data = doc.data()
-          articles.push({
+          articleList.push({
             id:       data.id,
             title:    data.title,
             imageUrl: data.imageUrls[0]
           })
+
+          this._data['newArticleList'] = articleList
         })
       })
       .catch(err => {
         console.log('Error getting documents', err)
       })
 
-    return articles
+    return
   }
 
   /**
@@ -60,34 +56,26 @@ class Article extends firebase {
    *
    */
   async setTopicArticle () {
-    this.data['topic'] = await this.getTopicArticle()
-  }
-
-  /**
-   * 最新のトピック記事を取得する
-   *
-   * todo: エラーハンドリング、カラム指定できる場合必要な情報のみ取得
-   */
-  async getTopicArticle () {
-    const docRef = this.collectionRef
+    let article = []
+    await this._articleRef
       .orderBy('createdAt', 'desc')
       .limit(1)
-
-    let article = {}
-    await docRef.get()
+      .get()
       .then(doc => {
         const data = doc.docs[0].data()
-        article = {
+        article.push({
           id:       data.id,
           title:    data.title,
           imageUrl: data.imageUrls[0]
-        }
+        })
+
+        this._data['topic'] = article
       })
       .catch(err => {
         console.log('Error getting documents', err)
       })
 
-    return article
+    return
   }
 
   /**
@@ -96,28 +84,17 @@ class Article extends firebase {
    * @param Int id 記事ID
    */
   async setArticleDetail (id) {
-    this.data = await this.getArticleDetail(id)
-  }
-
-  /**
-   * 記事詳細を設定する
-   *
-   * @param Int id 記事ID
-   */
-  async getArticleDetail (id) {
-    const docRef = this.collectionRef.doc(id)
-
-    let article = {}
-    await docRef.get()
+    await this._articleRef
+      .doc(id)
+      .get()
       .then(doc => {
-        article = doc.data()
-        article.id = data.id
+        this._data = doc.data()
       })
       .catch(err => {
         console.log('Error getting documents', err)
       })
 
-    return article
+    return
   }
 
   /**
@@ -125,8 +102,8 @@ class Article extends firebase {
    *
    * todo: DBからデータ取得
    */
-  setRankingArticles () {
-    this.data['rankingArticles'] = [
+  setRankingArticleList () {
+    this._data['rankingArticles'] = [
       {
         'img': '/images/sample2.jpg',
         'summary': 'sample new summay1'
@@ -171,68 +148,30 @@ class Article extends firebase {
   }
 
   /**
-   * 全カテゴリの記事を設定する
-   *
-   * todo: DBからデータ取得
-   */
-  setAllCategoryArticles () {
-    this.data['categoryArticles'] = {
-      'category1': [
-        {
-          'img'    : '/images/sample2.jpg',
-          'summary': 'sample category summay1'
-        },
-        {
-          'img'    : '/images/sample.jpg',
-          'summary': 'sample category summay2'
-        },
-        {
-          'img'    : '/images/sample4.jpg',
-          'summary': 'sample category summay3'
-        }
-      ],
-      'category2': [
-        {
-          'img'    : '/images/sample2.jpg',
-          'summary': 'sample category summay1'
-        },
-        {
-          'img'    : '/images/sample.jpg',
-          'summary': 'sample category summay2'
-        },
-        {
-          'img'    : '/images/sample4.jpg',
-          'summary': 'sample category summay3'
-        }
-      ],
-    }
-  }
-
-  /**
-   * カテゴリ別記事一覧を設定する
+   * カテゴリ記事一覧を設定する
    *
    * @param String category
    */
-  async setCategoryArticles (category) {
-    this.data = await this.getCategoryArticles(category)
+  async setCategoryArticleList (category) {
+    this._data = await this._getArticleListByCategory(category)
   }
 
   /**
-   * カテゴリ別記事一覧を取得する
+   * カテゴリ記事一覧を取得する
    *
+   * @private
    * @param String category
    * @returns array articles
    */
-  async getCategoryArticles (category) {
-    const docRef = this.collectionRef
+  async _getArticleListByCategory (category) {
+    let articleList = []
+    await this._articleRef
       .where('category', '==', category)
-
-    let articles = []
-    await docRef.get()
+      .get()
       .then(docs => {
         docs.forEach(doc => {
           const data = doc.data()
-          articles.push({
+          articleList.push({
             id:       data.id,
             title:    data.title,
             imageUrl: data.imageUrls[0]
@@ -243,7 +182,7 @@ class Article extends firebase {
         console.log('Error getting documents', err)
       })
 
-    return articles
+    return articleList
   }
 
 }

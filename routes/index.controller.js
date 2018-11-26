@@ -3,17 +3,15 @@
 const express = require('express')
 const router = express.Router()
 const Article = require('../models/article')
+const article = new Article()
 
 /**
  * Top
  */
 router.get('/', async (req, res) => {
-  const article = new Article()
-
   await article.setTopicArticle()
-  article.setRankingArticles()
-  await article.setNewArticles()
-  article.setAllCategoryArticles()
+  article.setRankingArticleList()
+  await article.setNewArticleList()
 
   res.render('index', await article.getArticleList())
 })
@@ -22,12 +20,11 @@ router.get('/', async (req, res) => {
  * カテゴリ別記事一覧
  */
 router.get('/category/:category', async (req, res) => {
-  const article = new Article()
   let data = []
 
-  // カテゴリ別記事一覧を設定する
+  // カテゴリ記事一覧を設定する
   const category = req.params.category
-  await article.setCategoryArticles(category)
+  await article.setCategoryArticleList(category)
 
   data['category'] = category
   data['articles'] = await article.getArticleList()
@@ -39,11 +36,8 @@ router.get('/category/:category', async (req, res) => {
  * 記事詳細
  */
 router.get('/article/:id', async (req, res) => {
-  const article = new Article()
-
   // 記事詳細を設定する
   await article.setArticleDetail(req.params.id)
-
   res.render('detail', await article.getArticleList())
 })
 

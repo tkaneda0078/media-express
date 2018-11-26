@@ -5,19 +5,29 @@ const admin = require('../config/firebase/firebase.admin')
 class Firebase {
 
   constructor () {
-    this.db = admin.firestore()
-    this.db.settings({timestampsInSnapshots: true})
-    this.collectionRef
+    this._db = null
+    this._setFirestore()
   }
 
   /**
-   * init collection ref
+   * Firestoreオブジェクトを作成する
+   *
+   * @private
+   */
+  _setFirestore () {
+    this._db = admin.firestore()
+    this._db.settings({timestampsInSnapshots: true})
+  }
+
+
+  /**
+   * collectionを取得する
    *
    * @param string collection
-   * @returns {Promise<void>}
+   * @return object collection ref
    */
-  initCollectionRef (collection) {
-    this.collectionRef = this.db.collection(collection)
+  getCollectionRef (collection) {
+    return this._db.collection(collection)
   }
 
 }
