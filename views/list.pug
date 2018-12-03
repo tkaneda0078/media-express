@@ -6,21 +6,22 @@ block contents
   div.uk-navbar-left.breadcrumb-container
     ul.breadcrumb.uk-breadcrumb
       li.li
-        a.a(href="#") Top
+        a.a(href="/") Top
       li.li
         a.a(href="#") #{category}
 
   div.uk-container.uk-container-small
+
     // category article list
     article.article-list
       div(class="uk-child-width-1-2@s" uk-grid)
-        each article in articles
+        each article in categoryArticleList
           article
-            a.article-card.uk-link-reset(href='/article/1')
+            a.article-card.uk-link-reset(href=`/article/${article.id}`)
               section.card.uk-card.uk-card-small
                 div.uk-card-media-top.uk-cover-container
-                  img.img(src=`${article.img}`, alt='' uk-cover)
+                  img.img(src=`${article.imageUrl}`, alt='' uk-cover)
                   canvas(width='545', height='310')
                 div.body.uk-card-body
                   p.summary
-                    | #{article.summary}
+                    | #{article.title}

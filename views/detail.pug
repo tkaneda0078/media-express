@@ -6,12 +6,12 @@ block contents
     article.topic-container.uk-margin
       // image
       section.topic-card.uk-cover-container.uk-align-center
-        img.img(src=`${article.img}`, alt='', uk-cover)
+        img.img(src=`${imageUrl}`, alt='', uk-cover)
         canvas(width='300', height='500')
 
       // detail article
       div.uk-container.uk-container-xsmall
         article.uk-article.detail-article
-          p.title #{article.title}
+          p.title #{title}
           p
-            | #{article.summary}
+            | #{title}
