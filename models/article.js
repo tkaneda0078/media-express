@@ -25,6 +25,7 @@ class Article extends firebase {
   /**
    * 最新の記事一覧を設定する
    *
+   * todo: DBのimageUrlを見直し
    */
   async setNewArticleList () {
     let articleList = []
@@ -47,35 +48,29 @@ class Article extends firebase {
       .catch(err => {
         console.log('Error getting documents', err)
       })
-
-    return
   }
 
   /**
    * トピック記事を設定する
    *
+   * todo: DBのimageUrlを見直し
    */
   async setTopicArticle () {
-    let article = []
     await this._articleRef
       .orderBy('createdAt', 'desc')
       .limit(1)
       .get()
       .then(doc => {
         const data = doc.docs[0].data()
-        article.push({
+        this._data['topic'] = {
           id:       data.id,
           title:    data.title,
           imageUrl: data.imageUrls[0]
-        })
-
-        this._data['topic'] = article
+        }
       })
       .catch(err => {
         console.log('Error getting documents', err)
       })
-
-    return
   }
 
   /**
@@ -93,58 +88,6 @@ class Article extends firebase {
       .catch(err => {
         console.log('Error getting documents', err)
       })
-
-    return
-  }
-
-  /**
-   * ランキング記事を設定する
-   *
-   * todo: DBからデータ取得
-   */
-  setRankingArticleList () {
-    this._data['rankingArticles'] = [
-      {
-        'img': '/images/sample2.jpg',
-        'summary': 'sample new summay1'
-      },
-      {
-        'img': '/images/sample.jpg',
-        'summary': 'sample nwe summay2'
-      },
-      {
-        'img': '/images/sample.jpg',
-        'summary': 'sample new summay3'
-      },
-      {
-        'img': '/images/sample4.jpg',
-        'summary': 'sample new summay4'
-      },
-      {
-        'img': '/images/sample4.jpg',
-        'summary': 'sample new summay5'
-      },
-      {
-        'img': '/images/sample2.jpg',
-        'summary': 'sample new summay6'
-      },
-      {
-        'img': '/images/sample4.jpg',
-        'summary': 'sample new summay7'
-      },
-      {
-        'img': '/images/sample3.jpg',
-        'summary': 'sample new summay8'
-      },
-      {
-        'img': '/images/sample3.jpg',
-        'summary': 'sample new summay9'
-      },
-      {
-        'img': '/images/sample3.jpg',
-        'summary': 'sample new summay10'
-      },
-    ]
   }
 
   /**
@@ -153,7 +96,7 @@ class Article extends firebase {
    * @param String category
    */
   async setCategoryArticleList (category) {
-    this._data = await this._getArticleListByCategory(category)
+    this._data['categoryArticleList'] = await this._getArticleListByCategory(category)
   }
 
   /**

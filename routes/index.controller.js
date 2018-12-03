@@ -10,8 +10,9 @@ const article = new Article()
  */
 router.get('/', async (req, res) => {
   await article.setTopicArticle()
-  article.setRankingArticleList()
   await article.setNewArticleList()
+  // await article.setCategoryArticleList()
+  // await article.setRankingArticleList()
 
   res.render('index', await article.getArticleList())
 })
@@ -20,14 +21,13 @@ router.get('/', async (req, res) => {
  * カテゴリ別記事一覧
  */
 router.get('/category/:category', async (req, res) => {
-  let data = []
-
   // カテゴリ記事一覧を設定する
   const category = req.params.category
   await article.setCategoryArticleList(category)
 
+  let data = []
+  data = await article.getArticleList()
   data['category'] = category
-  data['articles'] = await article.getArticleList()
 
   res.render('list', data)
 })
@@ -36,7 +36,6 @@ router.get('/category/:category', async (req, res) => {
  * 記事詳細
  */
 router.get('/article/:id', async (req, res) => {
-  // 記事詳細を設定する
   await article.setArticleDetail(req.params.id)
   res.render('detail', await article.getArticleList())
 })
